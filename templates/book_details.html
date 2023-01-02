@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="{% static 'css/style_details.css' %}">
+</head>
+<body>
+<center>
+    <div class="container">
+        <div class="post">
+            <div class="post-header">
+                <h1>{{object.title}}</h1>
+                <div class="post-meta">
+                    <span class="author">{{object.author}}</span>
+                    <span class="category">{{object.genre}}</span>
+                </div>
+            </div>
+            <div class="post-image">
+                <img src="{{object.image.url}}">
+            </div>
+            <div class="post-content">
+                <p>{{object.description}}</p>
+            </div>
+            <div class="post-meta">
+                <span class="author">{{object.created_date}}</span>
+                <span class="category">{{object.updated_date}}</span>
+            </div>
+            <button><a href="/book_details_/{{object.id}}/update/">Update</a> </button>
+            <button><a href="/book_details_/{{object.id}}/delete/">Delete</a> </button>
+        </div>
+    </div>
+    <a href="/book/" class="arrow-btn">Back<span></span></a>
+</center>
+<center>
+<hr>
+{% for i in object.comment_object.all %}
+<h4>{{i.text}}</h4>
+<p>{{i.created_date}}</p>
+{% endfor %}
+<hr>
+    </center>
+
+<center>
+    {% for i in object.expert_recommendation.all %}
+    <h4>{{i.name_expert}}</h4>
+    <h4>{{i.recommendation}}</h4>
+    {% endfor %}
+</center>
+</body>
+</html>
+

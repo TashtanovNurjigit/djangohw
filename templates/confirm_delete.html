@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Book</title>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h4>Вы уверены, что хотите удалить?</h4>
+  <button type="submit">Delete</button>
+  <button><a href="/book/">Return</a></button>
+</form>
+</body>
+</html>
