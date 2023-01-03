@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+    <link rel="stylesheet" href="{% static 'css/mybook_style.css' %}">
+</head>
+<body>
+<center>
+    {% for i in object_list %}
+    <div>
+
+        <h2><a href="{{i.author}}">Перейти к книге</a></h2>
+    <p>
+        <h2>{{i.title}}</h2>
+    </p>
+    <img src="{{i.image}}" alt="" width="300" height="250">
+
+    </div>
+    {% endfor %}
+</center>
+</body>
+</html>
